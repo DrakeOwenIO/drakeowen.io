@@ -1,7 +1,7 @@
 # drakeowen.io
 My Personal Site
 
-Basically I want to have a page online thats not part of social media.
+I want to have a page online thats not part of social media.
 
 This site has a few different purposes.
 1. Tell people who I am.
