@@ -1,0 +1,14 @@
+body{
+    background-color: black;
+    color: #39ff14;
+    font: 1.3rem Inconsolata, monospace;
+}
+
+input{
+    border: none;
+    background-color: black;
+    color: #39ff14;
+    outline: none;
+    font: 1.3rem Inconsolata, monospace;
+    width: 90%;
+}
