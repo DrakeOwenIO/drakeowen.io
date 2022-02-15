@@ -8,4 +8,3 @@ This site has a few different purposes.
 2. Introduce my hobbies.
 3. Provide my work experice.
 4. Host my impossible list and current goals.
-5. Post my current grades and classes :)
