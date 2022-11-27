@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors')
 const { toEditorSettings } = require('typescript');
 const { v4: uuidv4 } = require('uuid');
 const app = express();
@@ -6,6 +7,7 @@ require('dotenv').config();
 
 // MIDDLEWARE
 app.use(express.json({extended: false}));
+app.use(cors());
 
 // Fake Data 
 const articles = [
