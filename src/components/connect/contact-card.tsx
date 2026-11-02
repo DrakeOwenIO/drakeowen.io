@@ -12,7 +12,7 @@ export function ContactCard() {
   return (
     <article className="contact-card">
       <div className="card-topline">
-        <span className="mono">A GOOD CONNECTION STARTS HERE</span>
+        <span className="mono">MY CONTACT CARD</span>
         <span className="status-dot" />
       </div>
       <div className="avatar">
@@ -33,7 +33,7 @@ export function ContactCard() {
         Save to Contacts
       </a>
       <p className="save-note">
-        Your device will ask you to confirm or open the contact file.
+        Download my contact card, then open it to save my details.
       </p>
       <div className="card-links">
         {contact.linkedin && (
@@ -57,7 +57,7 @@ export function ContactCard() {
         </a>
       </div>
       <Link className="text-link card-work" href="/work">
-        Explore My Work <ArrowUpRight size={17} aria-hidden />
+        See my work <ArrowUpRight size={17} aria-hidden />
       </Link>
     </article>
   );

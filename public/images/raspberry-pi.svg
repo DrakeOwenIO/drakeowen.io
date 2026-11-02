@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="280" height="170" viewBox="0 0 280 170">
+  <title>Raspberry Pi circuit board illustration</title>
+  <defs><linearGradient id="board" x2="1" y2="1"><stop stop-color="#292033"/><stop offset="1" stop-color="#17121f"/></linearGradient></defs>
+  <rect x="22" y="24" width="236" height="138" rx="9" fill="#0b0a10"/>
+  <rect x="10" y="8" width="236" height="138" rx="9" fill="url(#board)" stroke="#8d72af"/>
+  <g fill="none" stroke="#65527e" stroke-width=".8">
+    <path d="M102 43v13m12-13v9l28 28h40m-57 17h31l19 19h39M72 79H48L34 65H21m51 32H53l-17 17H20m81-1v16l12 12h39m-59-28v19H66m61-44 28-28h35m-50 9h39l18-18h22M48 43v12l17 17m82 42v15h48"/>
+    <circle cx="48" cy="55" r="2"/><circle cx="66" cy="132" r="2"/><circle cx="152" cy="141" r="2"/><circle cx="195" cy="129" r="2"/>
+  </g>
+  <g fill="#121017" stroke="#675078"><rect x="34" y="19" width="166" height="23" rx="2"/><rect x="74" y="66" width="51" height="46" rx="2"/><rect x="148" y="62" width="28" height="26" rx="1"/></g>
+  <g fill="#b5a0d8"><rect x="40" y="24" width="3" height="4" rx=".5"/><rect x="48" y="24" width="3" height="4" rx=".5"/><rect x="56" y="24" width="3" height="4" rx=".5"/><rect x="64" y="24" width="3" height="4" rx=".5"/><rect x="72" y="24" width="3" height="4" rx=".5"/><rect x="80" y="24" width="3" height="4" rx=".5"/><rect x="88" y="24" width="3" height="4" rx=".5"/><rect x="96" y="24" width="3" height="4" rx=".5"/><rect x="104" y="24" width="3" height="4" rx=".5"/><rect x="112" y="24" width="3" height="4" rx=".5"/><rect x="120" y="24" width="3" height="4" rx=".5"/><rect x="128" y="24" width="3" height="4" rx=".5"/><rect x="136" y="24" width="3" height="4" rx=".5"/><rect x="144" y="24" width="3" height="4" rx=".5"/><rect x="152" y="24" width="3" height="4" rx=".5"/><rect x="160" y="24" width="3" height="4" rx=".5"/><rect x="168" y="24" width="3" height="4" rx=".5"/><rect x="176" y="24" width="3" height="4" rx=".5"/><rect x="184" y="24" width="3" height="4" rx=".5"/><rect x="192" y="24" width="3" height="4" rx=".5"/><rect x="40" y="32" width="3" height="4" rx=".5"/><rect x="48" y="32" width="3" height="4" rx=".5"/><rect x="56" y="32" width="3" height="4" rx=".5"/><rect x="64" y="32" width="3" height="4" rx=".5"/><rect x="72" y="32" width="3" height="4" rx=".5"/><rect x="80" y="32" width="3" height="4" rx=".5"/><rect x="88" y="32" width="3" height="4" rx=".5"/><rect x="96" y="32" width="3" height="4" rx=".5"/><rect x="104" y="32" width="3" height="4" rx=".5"/><rect x="112" y="32" width="3" height="4" rx=".5"/><rect x="120" y="32" width="3" height="4" rx=".5"/><rect x="128" y="32" width="3" height="4" rx=".5"/><rect x="136" y="32" width="3" height="4" rx=".5"/><rect x="144" y="32" width="3" height="4" rx=".5"/><rect x="152" y="32" width="3" height="4" rx=".5"/><rect x="160" y="32" width="3" height="4" rx=".5"/><rect x="168" y="32" width="3" height="4" rx=".5"/><rect x="176" y="32" width="3" height="4" rx=".5"/><rect x="184" y="32" width="3" height="4" rx=".5"/><rect x="192" y="32" width="3" height="4" rx=".5"/></g>
+  <g fill="none" stroke="#8d72af" stroke-width="1"><path d="M81 66v-6m0 52v6M74 73h-6m63 0h6"/><path d="M88 66v-6m0 52v6M74 79h-6m63 0h6"/><path d="M95 66v-6m0 52v6M74 85h-6m63 0h6"/><path d="M102 66v-6m0 52v6M74 91h-6m63 0h6"/><path d="M109 66v-6m0 52v6M74 97h-6m63 0h6"/><path d="M116 66v-6m0 52v6M74 103h-6m63 0h6"/></g>
+  <rect x="82" y="74" width="35" height="30" rx="1" fill="#211a2d" stroke="#65527e"/>
+  <g fill="#292033" stroke="#8d72af">
+    <rect x="217" y="48" width="36" height="26" rx="2"/><rect x="217" y="81" width="36" height="26" rx="2"/><rect x="211" y="114" width="42" height="29" rx="2"/>
+    <rect x="28" y="135" width="24" height="17" rx="2"/><rect x="74" y="138" width="29" height="14" rx="2"/><rect x="121" y="138" width="29" height="14" rx="2"/>
+  </g>
+  <g fill="none" stroke="#675078"><path d="M224 54h23v14h-23zM224 87h23v14h-23zM218 120h28v16h-28zM33 141h14"/><path d="M80 144h17m30 0h17"/></g>
+  <g fill="#121017" stroke="#8d72af"><circle cx="23" cy="21" r="4"/><circle cx="231" cy="21" r="4"/><circle cx="23" cy="132" r="4"/><circle cx="199" cy="132" r="4"/></g>
+  <g fill="#a78bfa"><circle cx="192" cy="109" r="2"/><circle cx="200" cy="109" r="2"/></g>
+</svg>

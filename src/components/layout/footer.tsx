@@ -10,9 +10,9 @@ export function Footer() {
             drake<span>.</span>owen
           </Link>
           <p>
-            IT professional by career.
+            IT Operations Manager.
             <br />
-            Technologist by nature.
+            Aviation and 3D printing in my spare time.
           </p>
         </div>
         <nav aria-label="Footer navigation">

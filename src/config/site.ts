@@ -3,7 +3,7 @@ export const site = {
   name: "Drake Owen",
   url: "https://drakeowen.com",
   description:
-    "IT professional by career, technologist by nature. Drake Owen is an IT Operations Manager in Western North Carolina.",
+    "Drake Owen, IT Operations Manager at Automated Results in Western North Carolina. IT projects, 3D printing, aviation, and notes from my work.",
   companyUrl: undefined as string | undefined,
 };
 // Add verified details here. Undefined fields are deliberately omitted from the UI and vCard.

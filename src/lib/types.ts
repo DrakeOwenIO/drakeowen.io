@@ -22,6 +22,7 @@ export interface ProjectMetadata {
   category: "professional" | "personal";
   tags: string[];
   status: "draft" | "published";
+  developmentStatus?: string;
   image?: string;
 }
 export interface JournalMetadata {

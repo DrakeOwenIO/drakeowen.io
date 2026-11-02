@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-export const alt = "Drake Owen — Engineer at heart. Always curious.";
+export const alt = "Drake Owen — IT work and side projects.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export default function Image() {
@@ -27,8 +27,8 @@ export default function Image() {
           letterSpacing: -3,
         }}
       >
-        <span>Engineer at heart.</span>
-        <span style={{ color: "#A78BFA" }}>Always curious.</span>
+        <span>IT work</span>
+        <span style={{ color: "#A78BFA" }}>and side projects.</span>
       </div>
       <div style={{ color: "#A1A1AA", fontSize: 21 }}>
         IT OPERATIONS MANAGER / WESTERN NORTH CAROLINA

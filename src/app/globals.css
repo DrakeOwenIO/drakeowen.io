@@ -508,36 +508,14 @@ svg {
   letter-spacing: 0.12em;
   color: var(--secondary);
 }
-.nfc-card {
+.pi-fly-board {
   position: absolute;
   top: 57px;
   left: 50%;
   width: 224px;
   height: 130px;
   transform: translateX(-50%) rotate(-12deg);
-  background: #211a2d;
-  border: 1px solid #65527e;
-  border-radius: 9px;
-  padding: 22px;
-  box-shadow: 12px 16px 0 #0b0a10;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.nfc-card > span:first-child {
-  font-size: 22px;
-  letter-spacing: -1px;
-}
-.nfc-card small {
-  font: 8px var(--font-geist-mono);
-  color: var(--accent);
-}
-.nfc-mark {
-  position: absolute;
-  right: 20px;
-  bottom: 20px;
-  color: var(--accent);
-  font-size: 16px;
+  object-fit: contain;
 }
 .personal-copy {
   padding-top: 24px;
@@ -797,7 +775,7 @@ svg {
   .flight-point {
     top: 223px;
   }
-  .nfc-card {
+  .pi-fly-board {
     top: 80px;
   }
   .eyebrow,
@@ -900,7 +878,7 @@ svg {
   .personal-art {
     height: 300px;
   }
-  .nfc-card {
+  .pi-fly-board {
     top: 87px;
     width: 260px;
     height: 150px;

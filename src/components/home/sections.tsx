@@ -10,28 +10,28 @@ export function Hero() {
     <section className="hero shell">
       <div className="eyebrow">
         <span className="status-dot" />
-        IT OPERATIONS MANAGER / TECHNOLOGIST
+        IT OPERATIONS / NETWORKS / SERVERS
       </div>
       <h1>
-        I like figuring out
-        <br className="desktop-break" /> how things work.
+        I work in IT
+        <br className="desktop-break" /> and spend my spare time
         <br />
-        <em>Then making them work better.</em>
+        <em>building things.</em>
       </h1>
       <div className="hero-bottom">
         <div>
           <p>
             I’m Drake, an IT Operations Manager at Automated Results in Western
-            North Carolina. I spend my days working with networks, servers, and
-            infrastructure projects. Outside of work, I’m usually building
-            something, writing code, or finding an excuse to go flying.
+            North Carolina. My work covers networks, servers, and infrastructure
+            projects. At home, I’m usually working on my homelab, trying out a
+            3D print, or finding time to fly.
           </p>
           <div className="actions">
             <Link className="button primary" href="/work">
-              Explore My Work <ArrowUpRight size={18} aria-hidden />
+              See my work <ArrowUpRight size={18} aria-hidden />
             </Link>
             <Link className="text-link" href="/connect">
-              Let’s Connect <ArrowRight size={17} aria-hidden />
+              Get in touch <ArrowRight size={17} aria-hidden />
             </Link>
           </div>
         </div>
@@ -45,8 +45,8 @@ export function Hero() {
         </div>
       </div>
       <div className="hero-caption">
-        <span>ENGINEERING / OPERATIONS / EXPLORATION</span>
-        <a href="#what-i-do" aria-label="Discover what I do">
+        <span>IT / 3D PRINTING / AVIATION</span>
+        <a href="#what-i-do" aria-label="See what I do">
           <MoveDown size={18} aria-hidden />
         </a>
       </div>
@@ -59,16 +59,15 @@ export function Experience() {
       <div className="section-index">01 / WHAT I DO</div>
       <Reveal>
         <h2>
-          Getting things working.
+          Networks, servers,
           <br />
-          <span className="muted">Understanding why they weren’t.</span>
+          <span className="muted">and the work around them.</span>
         </h2>
         <p className="reading">
-          My background is hands-on: troubleshooting systems, setting up
-          networks, and keeping servers running. I like working through a
-          problem until I understand what’s actually going on. These days, I
-          also spend more time planning infrastructure changes, coordinating
-          projects, and keeping day-to-day IT work moving.
+          I started with troubleshooting, network setup, and server administration.
+          That work is still a big part of how I approach IT. In my current role,
+          I also plan infrastructure changes, coordinate projects, and manage
+          day-to-day operations.
         </p>
         <ul className="expertise">
           {[
@@ -76,7 +75,7 @@ export function Experience() {
             "Networking",
             "Systems Administration",
             "IT Operations",
-            "Technical Project Coordination",
+            "Project Coordination",
           ].map((item, i) => (
             <li key={item}>
               <span className="mono">0{i + 1}</span>
@@ -100,26 +99,26 @@ export function WorkPreview() {
     <section className="section shell">
       <div className="section-heading">
         <div>
-          <div className="section-index">02 / IN PRACTICE</div>
+          <div className="section-index">02 / WORK</div>
           <h2>
-            Selected Work<span className="accent">.</span>
+            IT Projects<span className="accent">.</span>
           </h2>
         </div>
         <Link className="text-link" href="/work">
-          Explore work <ArrowUpRight size={17} aria-hidden />
+          See all projects <ArrowUpRight size={17} aria-hidden />
         </Link>
       </div>
       <div className="featured-project">
         <div className="project-art">
           <Image
             src={project.image!}
-            alt="Abstract infrastructure diagram; illustrative placeholder for project photography"
+            alt="Illustration of connected infrastructure components"
             width={1000}
             height={680}
             sizes="(max-width: 768px) 100vw, 55vw"
           />
           <span className="art-caption">
-            INFRASTRUCTURE / ILLUSTRATIVE STUDY
+            INFRASTRUCTURE / ILLUSTRATION
           </span>
         </div>
         <div className="project-info">
@@ -131,7 +130,7 @@ export function WorkPreview() {
               <span key={tag}>{tag}</span>
             ))}
           </div>
-          <p className="project-note">Case study coming soon</p>
+          <p className="project-note">Project write-up to come</p>
         </div>
       </div>
     </section>
@@ -144,10 +143,10 @@ export function PersonalProjects() {
         <div>
           <div className="section-index">03 / AFTER HOURS</div>
           <h2>
-            Beyond the Office<span className="accent">.</span>
+            Side Projects<span className="accent">.</span>
           </h2>
           <p>
-            Technology doesn’t stop being interesting when the workday ends.
+            A couple of things I’m working on outside of my day job.
           </p>
         </div>
       </div>
@@ -164,28 +163,44 @@ export function PersonalProjects() {
                     <div className="flight-line two" />
                     <span className="flight-point" />
                     <span className="drawing-label">
-                      FLIGHT / PHYSICS / PLAY
+                      PARAMOTOR SIMULATOR
                     </span>
                   </>
                 ) : (
                   <>
-                    <div className="nfc-card">
-                      <span>drake.owen</span>
-                      <span className="nfc-mark">)))</span>
-                      <small>TAP TO CONNECT ↗</small>
-                    </div>
+                    <Image
+                      className="pi-fly-board"
+                      src="/images/raspberry-pi.svg"
+                      alt=""
+                      width={280}
+                      height={170}
+                    />
                     <span className="drawing-label">
-                      DESIGN / PRINT / CONNECT
+                      RASPBERRY PI / WEATHER DASHBOARD
                     </span>
                   </>
                 )}
               </div>
               <div className="personal-copy">
                 <div className="eyebrow">
-                  {i === 0 ? "AVIATION + CODE" : "PHYSICAL + DIGITAL"}
+                  {i === 0
+                    ? "AVIATION + CODE"
+                    : "EMBEDDED SYSTEMS / AVIATION / SOFTWARE"}
                 </div>
                 <h3>{project.title}</h3>
                 <p>{project.description}</p>
+                {project.developmentStatus && (
+                  <>
+                    <p className="project-note">
+                      {project.developmentStatus} · Planned capabilities
+                    </p>
+                    <div className="tags">
+                      {project.tags.map((tag) => (
+                        <span key={tag}>{tag}</span>
+                      ))}
+                    </div>
+                  </>
+                )}
               </div>
             </article>
           ))}
@@ -196,23 +211,22 @@ export function PersonalProjects() {
 export function AboutPreview() {
   return (
     <section className="section shell split">
-      <div className="section-index">04 / THE PERSON BEHIND THE WORK</div>
+      <div className="section-index">04 / ABOUT ME</div>
       <div>
         <h2>
-          I learn by doing.
+          Away from work,
           <br />
-          <span className="muted">And by trying again.</span>
+          <span className="muted">I keep a few projects going.</span>
         </h2>
         <p className="reading">
-          I’m still the engineer who wants to get hands-on with a problem.
-          Managing IT operations means I’m thinking more about planning and
-          coordination, but I haven’t lost the itch to troubleshoot and build
-          things.
+          My homelab gives me a place to try things out. I also spend time with
+          CAD and 3D printing, working through designs and seeing how they turn
+          out as actual objects.
         </p>
         <p className="reading">
-          Away from work, I’m into aviation, 3D printing, and tinkering in my
-          homelab. I like projects that give me something new to figure out,
-          whether that’s a bit of code, a CAD model, or how something flies.
+          Aviation is another interest. The paramotor simulator is my attempt to
+          bring flying and coding together, and I’m learning about flight
+          physics and game development as I go.
         </p>
         <Link className="text-link" href="/about">
           A little more about me <ArrowUpRight size={17} aria-hidden />
@@ -226,12 +240,12 @@ export function JournalPreview() {
     <section className="section shell">
       <div className="section-heading">
         <div>
-          <div className="section-index">05 / FIELD NOTES & DEEP DIVES</div>
+          <div className="section-index">05 / JOURNAL</div>
           <h2>
-            From the Journal<span className="accent">.</span>
+            Notes<span className="accent">.</span>
           </h2>
           <p>
-            Technical notes, lessons learned, and experiments worth documenting.
+            A place to keep notes on IT work and personal projects.
           </p>
         </div>
       </div>
@@ -248,11 +262,11 @@ export function JournalPreview() {
         </ul>
       ) : (
         <div className="journal-empty">
-          <span className="mono accent">[ IN THE WORKS ]</span>
+          <span className="mono accent">[ NO POSTS YET ]</span>
           <p>
-            Good notes take time.
+            I haven’t published anything yet.
             <br />
-            <span className="muted">The first entries are coming soon.</span>
+            <span className="muted">When I do, you’ll find it here.</span>
           </p>
           <Link className="text-link" href="/journal">
             Visit the journal <ArrowUpRight size={17} aria-hidden />
@@ -265,18 +279,17 @@ export function JournalPreview() {
 export function ContactSection() {
   return (
     <section className="contact-section shell">
-      <div className="eyebrow">A CONVERSATION IS A GOOD PLACE TO START</div>
+      <div className="eyebrow">CONTACT</div>
       <h2>
-        Let’s Connect<span className="accent">.</span>
+        Get in touch<span className="accent">.</span>
       </h2>
       <div className="contact-bottom">
         <p>
-          Talking infrastructure, exchanging ideas, or meeting at IT Nation.
-          <br className="desktop-break" /> I’m always glad to connect with
-          fellow technologists.
+          If we’ve met at IT Nation or talked about an IT project,
+          <br className="desktop-break" /> you can save my contact card here.
         </p>
         <Link className="button primary" href="/connect">
-          Say hello <ArrowUpRight size={18} aria-hidden />
+          Save my details <ArrowUpRight size={18} aria-hidden />
         </Link>
       </div>
       <div className="social-links">

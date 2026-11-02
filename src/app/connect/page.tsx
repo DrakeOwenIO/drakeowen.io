@@ -2,7 +2,7 @@ import { ContactCard } from "@/components/connect/contact-card";
 import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata(
   "Connect",
-  "Connect with Drake Owen, IT Operations Manager at Automated Results. Save his contact card and explore his work.",
+  "Save the contact card for Drake Owen, IT Operations Manager at Automated Results in Western North Carolina.",
   "/connect",
 );
 export default function Connect() {
@@ -10,7 +10,7 @@ export default function Connect() {
     <section className="connect-page shell">
       <ContactCard />
       <p className="connect-tagline">
-        IT professional by career. Technologist by nature.
+        Networks, servers, and a few side projects.
       </p>
     </section>
   );
