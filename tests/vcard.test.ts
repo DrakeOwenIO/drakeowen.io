@@ -9,7 +9,14 @@ describe("vCard 3.0", () => {
     );
   });
   it("uses structured names, CRLF and omits unknown fields", () => {
-    const card = generateVCard(contact);
+    const card = generateVCard({
+      ...contact,
+      email: undefined,
+      phone: undefined,
+      cell: undefined,
+      linkedin: undefined,
+      github: undefined,
+    });
     expect(card).toContain("N:Owen;Drake;;;\r\n");
     expect(card).toContain("VERSION:3.0\r\n");
     expect(card).not.toMatch(/EMAIL|TEL|undefined/);
@@ -29,6 +36,18 @@ describe("vCard 3.0", () => {
     expect(card).toContain("URL;TYPE=WORK:https://example.com/profile");
     expect(card).toContain("ORG:Example\\nTEL:injected");
     expect(card).not.toContain("\r\nTEL:injected");
+  });
+  it("exports the verified work and cell numbers separately", () => {
+    const card = generateVCard(contact).replaceAll("\r\n ", "");
+    expect(card).toContain(
+      "EMAIL;TYPE=INTERNET,WORK:drakeowen@automatedresults.com\r\n",
+    );
+    expect(card).toContain("TEL;TYPE=WORK,VOICE:+1 (828) 680-8125\r\n");
+    expect(card).toContain("TEL;TYPE=CELL,VOICE:+1 (864) 506-2854\r\n");
+    expect(card).toContain(
+      "URL;TYPE=WORK:https://www.linkedin.com/in/drake-owen-688429163/\r\n",
+    );
+    expect(card).toContain("URL:https://github.com/DrakeOwenIO\r\n");
   });
   it("folds UTF-8 lines at 75 octets without breaking characters", () => {
     const value = "FN:" + "é🪂".repeat(50);

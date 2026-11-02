@@ -37,7 +37,9 @@ export function generateVCard(contact: ContactInformation): string {
   ];
   if (contact.email) lines.push(`EMAIL;TYPE=INTERNET,WORK:${e(contact.email)}`);
   if (contact.phone) lines.push(`TEL;TYPE=WORK,VOICE:${e(contact.phone)}`);
+  if (contact.cell) lines.push(`TEL;TYPE=CELL,VOICE:${e(contact.cell)}`);
   if (contact.linkedin) lines.push(`URL;TYPE=WORK:${e(contact.linkedin)}`);
+  if (contact.github) lines.push(`URL:${e(contact.github)}`);
   lines.push("END:VCARD");
   return lines.map(foldLine).join("\r\n") + "\r\n";
 }

@@ -1010,3 +1010,16 @@ svg {
     gap: 8px;
   }
 }
+
+.card-links .contact-detail {
+  min-width: 0;
+  padding-block: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.contact-detail small {
+  color: var(--secondary);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}

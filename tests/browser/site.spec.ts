@@ -151,3 +151,35 @@ test("reduced motion and skip navigation", async ({ page }) => {
     ),
   ).toBe("auto");
 });
+
+test("contact card shows verified links and loads the portrait on a narrow phone", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 320, height: 900 });
+  await page.goto("/connect");
+  const card = page.locator(".contact-card");
+  for (const [name, href] of [
+    ["Email", "mailto:drakeowen@automatedresults.com"],
+    ["Work phone", "tel:+18286808125"],
+    ["Cell", "tel:+18645062854"],
+    ["LinkedIn", "https://www.linkedin.com/in/drake-owen-688429163/"],
+    ["GitHub", "https://github.com/DrakeOwenIO"],
+    ["Automated Results", "https://automatedresults.com"],
+  ]) {
+    await expect(
+      card.getByRole("link", { name: new RegExp(name) }),
+    ).toHaveAttribute("href", href);
+  }
+  const portrait = card.getByRole("img", { name: "Drake Owen" });
+  await expect(portrait).toBeVisible();
+  await expect
+    .poll(() =>
+      portrait.evaluate((image) => (image as HTMLImageElement).naturalWidth),
+    )
+    .toBeGreaterThan(0);
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  ).toBe(true);
+});

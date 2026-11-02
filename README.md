@@ -1,94 +1,83 @@
 # DrakeOwen.com
 
-First milestone: a dark, mobile-first personal portfolio and NFC digital contact card. Built with Next.js App Router, React, strict TypeScript, Tailwind CSS, Geist, Lucide, and Motion. Content is server-rendered; only navigation and a small progressive animation use client components.
+My corner of the internet for the things I work on and the things I’m curious about.
 
-## Local development
+I’m Drake Owen, an IT Operations Manager at Automated Results in Western North Carolina. My background is hands-on engineering: working with networks and servers, troubleshooting problems, and helping infrastructure projects move forward. Outside of work, I’m usually experimenting with code, tinkering in my homelab, designing something to 3D print, or finding an excuse to go flying.
 
-Use Node.js 22 LTS and pnpm 10.26.0 (the existing Node 20.19.3 environment also passes this milestone's checks).
+This site brings those interests together. It’s also where someone lands after tapping my NFC business card—so getting in touch should be as easy as exploring a project.
+
+## What’s here
+
+- **Home:** an introduction to me, my work, and what I’m building outside the office.
+- **Work:** professional infrastructure work and personal projects, with room for fuller case studies as I write them.
+- **Journal:** a place for technical notes, lessons learned, and experiments worth documenting. Articles are still to come.
+- **About:** a little more about the person behind the projects.
+- **Connect:** my portrait, email, work and cell numbers, social profiles, and a downloadable contact card.
+
+The dark-purple palette, numbered section labels, and technical illustrations are intentional parts of the site. Project illustrations are placeholders, not photographs of client infrastructure. Project descriptions should stick to what I’ve actually worked on; case studies and results can be added when they’re ready to share.
+
+## Contact card and NFC
+
+Physical NFC cards point to **https://drakeowen.com/connect**. That URL should stay stable.
+
+Contact details live in `src/config/site.ts` and feed the contact page, shared social links, and vCard. The configuration includes my Automated Results email, separate work and cell numbers, LinkedIn, GitHub, and the company website. Keep edits there so the displayed details and downloaded contact stay in sync.
+
+The portrait is served from `/images/204F18B3-C0FF-4758-9D4F-847DE38DD79C.PNG` in `public/images`. To replace it, update `contact.photo` with a public URL path—not a filesystem directory. Leave that field undefined to use the initials avatar.
+
+**Save to Contacts** downloads `Drake-Owen.vcf` from `/api/contact/vcard`. It includes name, company, role, email, work and cell numbers, and website/social URLs. It uses vCard 3.0 with escaped values, CRLF endings, and UTF-8 line folding. Contact apps may show social profiles as ordinary website links. The endpoint caches responses for one hour.
+
+A phone may open the contact directly or ask you to open the downloaded file. Saving still needs the user’s confirmation. Before using the NFC cards at an event, check an actual iPhone and Android phone: tap the card, download the contact, and confirm both phone numbers import under the right labels. Browser tests cannot verify the native address-book flow.
+
+## Run locally
+
+The site uses Next.js App Router, React, strict TypeScript, Tailwind CSS, Geist fonts, Lucide icons, and a small amount of Motion. Most content is server-rendered.
+
+Use Node.js 22 LTS and pnpm 10.26.0:
 
 ```sh
 pnpm install --frozen-lockfile
 pnpm dev
 ```
 
-Open http://localhost:3000. Other commands:
+Open http://localhost:3000.
 
 ```sh
-pnpm typecheck
 pnpm lint
+pnpm typecheck
 pnpm test
 pnpm build
 pnpm start
-pnpm exec playwright install chromium
-pnpm test:e2e
-pnpm format
 ```
 
-Browser tests run against a production build and start their own server if port 3100 is free. Run `pnpm build` first. The lockfile pins resolved packages. TypeScript 6.0 and ESLint 9 are selected for compatibility with Next.js's current ESLint plugins; revisit together when those plugins support newer majors.
+`pnpm start` stages the static assets and runs the standalone production build. `HOSTNAME` and `PORT` can override the local binding. The first build needs network access to download Geist, which Next.js then self-hosts.
 
-## Structure
+For browser checks:
 
-- `src/app`: homepage, Connect, Work, Journal, About, metadata, and contact endpoint.
-- `src/components/layout`: keyboard-accessible responsive navigation and footer.
-- `src/components/home`: reusable portfolio sections and journal empty state.
-- `src/components/connect`: digital contact card.
-- `src/config/site.ts`: canonical domain, navigation, employer URL, and contact information.
-- `src/config/content.ts`: factual project previews; no published journal entries.
-- `src/lib/types.ts`: project, journal, contact, and navigation contracts.
-- `src/lib/vcard.ts`: vCard serialization, escaping, and UTF-8 line folding.
-- `content/projects` and `content/journal`: reserved for future MDX integration.
-- `public/images`: local, original illustrative infrastructure placeholder.
-- `tests`: vCard unit/endpoint tests and Playwright navigation/responsive checks.
+```sh
+pnpm exec playwright install chromium
+pnpm build
+pnpm test:e2e
+```
 
-Design tokens are in `src/app/globals.css`. The theme is dark-only, with separate variables ready for a future light theme. Project imagery is explicitly illustrative, not a representation of a real client's equipment. The personal project visuals are lightweight CSS drawings. No imagery requires third-party runtime requests. Next.js downloads and self-hosts Geist during builds; the first build needs network access for those fonts.
+Playwright uses port 3100, separate from the development server. Tests cover responsive layouts, mobile navigation, keyboard interaction, reduced motion, contact links, portrait loading, and vCard downloads. Unit tests cover vCard escaping, folding, optional fields, and separate work/cell entries. Run `pnpm format` to format the source.
 
-## Details Drake needs to provide
+## Where to make changes
 
-Edit `src/config/site.ts` to add only verified values:
+| Change                                     | Location                                  |
+| ------------------------------------------ | ----------------------------------------- |
+| Contact details, employer link, navigation | `src/config/site.ts`                      |
+| Project previews and journal metadata      | `src/config/content.ts`                   |
+| Homepage copy and sections                 | `src/components/home/sections.tsx`        |
+| Digital contact card                       | `src/components/connect/contact-card.tsx` |
+| Header and footer                          | `src/components/layout`                   |
+| Colors, typography, spacing                | `src/app/globals.css`                     |
+| vCard generation                           | `src/lib/vcard.ts`                        |
+| Photos and illustrations                   | `public/images`                           |
 
-- Professional email.
-- Optional professional telephone number (international format recommended).
-- LinkedIn profile URL.
-- GitHub profile URL.
-- Automated Results website URL (`site.companyUrl`).
-- Optional portrait (`contact.photo`, a local `/images/...` path recommended).
+`content/projects` and `content/journal` are reserved for future MDX case studies and articles. There’s no CMS, database, or authentication system to maintain.
 
-Undefined links are omitted, including the employer link. The contact file currently contains the supplied name, organization, job title, and website only. Add real project photographs, approved case-study details, and any publication permissions before replacing the clearly labeled placeholders. Never add client names or results without approval.
+## Still to come
 
-## NFC and contact behavior
+The next useful additions are real project write-ups, approved photographs, and the first journal entries. Those should grow out of the work and experiments themselves.
 
-Program physical cards with the permanent URL **https://drakeowen.com/connect**. The page links directly to `/api/contact/vcard`; it does not require login, cookies, or navigation through the portfolio. The endpoint generates vCard 3.0 from the shared configuration, omits unknown fields, escapes special characters, folds at 75 UTF-8 octets, uses CRLF endings, and returns `text/vcard; charset=utf-8` with attachment filename `Drake-Owen.vcf`.
-
-Browsers and operating systems control contact import. Saving is never silent; some devices download a file that must then be opened. LinkedIn is represented as an additional work URL for broad vCard compatibility; contact apps may display it simply as a website.
-
-### Real-device acceptance checks (still required)
-
-1. On iPhone Safari and Android Chrome, tap a physical NFC card and confirm it opens the permanent HTTPS `/connect` URL.
-2. Tap Save to Contacts. Follow the OS confirmation or open the downloaded `.vcf`, select the desired account if prompted, and verify name, organization, title, website, and any newly configured optional fields.
-3. Check canceling, repeat imports/duplicate handling, and any in-app browser used at events. These flows vary by OS and contact app.
-4. Test VoiceOver/TalkBack, large text, portrait/landscape, safe areas, and slow cellular networking. Confirm buttons remain usable and the file imports Unicode correctly.
-5. Once hosted, verify the final domain, NFC redirect behavior, and a fresh downloaded card after any configuration change (the endpoint caches for one hour).
-
-Automated Chromium tests cover 320, 375, 390, 768, 1024, and 1440px layouts, all initial routes, canonical URLs, keyboard/mobile navigation, reduced motion, and the actual vCard download. Automated testing does not verify native iOS/Android address-book integration.
-
-## Build and future self-hosting
-
-`next.config.ts` enables `output: 'standalone'`. The build produces `.next/standalone`; future deployment packaging must also copy `public` and `.next/static` into their corresponding standalone locations. `pnpm start` stages these assets automatically and starts the actual standalone server for local production preview. Set `HOSTNAME` and `PORT` to override its local binding. Production Nginx, TLS, systemd, CI, and server provisioning are deliberately outside this milestone; nothing has been deployed.
-
-## Recommended next steps
-
-1. Fill the verified contact configuration and perform the real-device NFC checks above.
-2. Replace the infrastructure illustration with approved photography; add a portrait if desired.
-3. Develop approved project case studies and add MDX loaders/detail routes. Preserve draft/published metadata and journal Field Note/Deep Dive types.
-4. Publish the first journal entries; add related-content rendering when real content exists.
-5. Plan Ubuntu/Nginx deployment, security updates, and accessibility/performance audits against the final hosted domain.
-
-## Milestone verification
-
-Completed on October 22, 2026: strict type checking, ESLint (no warnings), all 5 Vitest tests, production standalone build, and all 10 Playwright tests passed. Responsive checks cover all five pages at the six requested widths. Desktop homepage, 320px homepage, and 320px contact screenshots were visually reviewed. Real-device contact imports remain pending.
-
-## Refinement verification
-
-The refinement pass preserves the dark-purple theme, numbered labels, illustrations, and contact-card layout. Mobile navigation uses a native disclosure so opening and closing still work before JavaScript loads. Enhanced behavior adds outside-click, Escape, link-selection, and breakpoint dismissal. The previous JavaScript-only menu worked in the normal local browser but was inert without JavaScript; no other opening failure was reproduced.
-
-Lint, strict type checking, production build, 5 unit tests, and 13 browser tests pass. Browser tests now use port 3100 to avoid the development server on port 3000, and cover touch/keyboard navigation at 320, 375, and 390px, every mobile menu destination, no-JavaScript opening, and vCard downloads. Screenshots at these phone widths and desktop were visually reviewed. Native iOS/Android contact imports still require real-device testing.
+The app is configured for a standalone Next.js build for eventual Ubuntu/Nginx hosting. Server provisioning, TLS, systemd, and deployment automation are separate work; this repository does not configure them.

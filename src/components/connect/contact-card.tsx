@@ -6,8 +6,11 @@ import {
   Globe,
   BriefcaseBusiness,
   Mail,
+  Phone,
+  Smartphone,
+  Code,
 } from "lucide-react";
-import { contact } from "@/config/site";
+import { contact, site } from "@/config/site";
 export function ContactCard() {
   return (
     <article className="contact-card">
@@ -26,7 +29,13 @@ export function ContactCard() {
       </div>
       <h1>{contact.fullName}</h1>
       <p className="card-title">{contact.title}</p>
-      <p className="muted">{contact.organization}</p>
+      <p className="muted">
+        {site.companyUrl ? (
+          <a href={site.companyUrl}>{contact.organization}</a>
+        ) : (
+          contact.organization
+        )}
+      </p>
       <p className="card-location mono">WESTERN NORTH CAROLINA</p>
       <a className="button primary save-contact" href="/api/contact/vcard">
         <Download size={19} aria-hidden />
@@ -46,7 +55,40 @@ export function ContactCard() {
         {contact.email && (
           <a href={`mailto:${contact.email}`}>
             <Mail size={19} aria-hidden />
-            <span>Email</span>
+            <span className="contact-detail">
+              <span>Email</span>
+              <small>
+                {contact.email.split("@")[0]}@<wbr />
+                {contact.email.split("@")[1]}
+              </small>
+            </span>
+            <ArrowUpRight size={17} aria-hidden />
+          </a>
+        )}
+        {contact.phone && (
+          <a href={`tel:${contact.phone.replace(/[^+\d]/g, "")}`}>
+            <Phone size={19} aria-hidden />
+            <span className="contact-detail">
+              <span>Work phone</span>
+              <small>{contact.phone}</small>
+            </span>
+            <ArrowUpRight size={17} aria-hidden />
+          </a>
+        )}
+        {contact.cell && (
+          <a href={`tel:${contact.cell.replace(/[^+\d]/g, "")}`}>
+            <Smartphone size={19} aria-hidden />
+            <span className="contact-detail">
+              <span>Cell</span>
+              <small>{contact.cell}</small>
+            </span>
+            <ArrowUpRight size={17} aria-hidden />
+          </a>
+        )}
+        {contact.github && (
+          <a href={contact.github}>
+            <Code size={19} aria-hidden />
+            <span>GitHub</span>
             <ArrowUpRight size={17} aria-hidden />
           </a>
         )}

@@ -6,7 +6,9 @@ export interface ContactInformation {
   title: string;
   website: string;
   email?: string;
+  /** Work telephone number. */
   phone?: string;
+  cell?: string;
   linkedin?: string;
   github?: string;
   photo?: string;
